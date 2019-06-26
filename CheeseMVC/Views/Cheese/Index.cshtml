@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+
+    //List<string> cheeses = new List<string>();
+    //cheeses.Add("Cheddar");
+    //cheeses.Add("Munster");
+    //cheeses.Add("Parmesan");
+}
+
+<h1>My Cheese</h1>
+
+@* // One possible way to add a link
+    <p><a href="/Cheese/Add">Add Cheese</a></p> *@
+
+
+@* This allows you to easily change the routing structure and will not use the default routing structure *@
+<p><a asp-controller="Cheese" asp-action="Add">Add Cheese</a></p>
+
+@if (ViewBag.cheeses.Count == 0)
+{
+    <p>No Cheese Yet!</p>
+}
+
+<ul>
+    @* must call the view bag to use it in the view *@
+    @foreach (string cheese in ViewBag.cheeses)
+    {
+        <li>@cheese</li>
+    }
+
+
+</ul>
+
